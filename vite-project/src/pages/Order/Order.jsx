@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Layout from '../../components/layout/layout'
+
+
 
 function Order() {
+  
   return (
-    <div>Order</div>
+    <Layout>
+      Order
+    </Layout>
   )
 }
 
