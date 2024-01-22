@@ -5,7 +5,7 @@ import Order from './pages/Order/Order'
 import NoPage from './pages/nopage/NoPage';
 import Cart from './pages/cart/Cart';
 import Dashboard from './pages/admin/dashboard/Dashboard';
-import MyState from './context/data/myState';
+import MyState from './data/myState';
 
 
 function App() {
@@ -20,8 +20,7 @@ function App() {
           <Route  path='/*' element={<NoPage/>} />
         </Routes>
     </Router>
-    </MyState>      
-    
+  </MyState>     
   )
 }
 
