@@ -27,7 +27,7 @@ function Track() {
                                 </svg>
 
                                 <h2 className="text-lg font-medium text-gray-900 title-font" style={{color: mode === 'dark' ? 'white' : ''}}>Free Shipping</h2>
-                                <p className="leading-relaxed">We ship all over Pakistan for FREE </p>
+                                <p className="leading-relaxed">We ship all over Pakistan for FREE off Cast </p>
                             </div>
                         </div>
                         <div className="w-full p-4 md:w-1/3 sm:w-1/2">
@@ -35,6 +35,7 @@ function Track() {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="inline-block w-12 h-12 mb-3 text-pink-600">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 8.25H9m6 3H9m3 6l-3-3h1.5a3 3 0 100-6M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
+                                
 
                                 <h2 className="text-lg font-medium text-gray-900 title-font" style={{color: mode === 'dark' ? 'white' : ''}}>Exciting Offers</h2>
                                 <p className="leading-relaxed">We provide amazing offers & discounts</p>

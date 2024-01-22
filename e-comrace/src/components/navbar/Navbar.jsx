@@ -15,8 +15,8 @@ function Navbar() {
 
   return (
     <div className="sticky top-0 z-50 bg-white "  >
-
-      /*  For Mobile  */
+{
+      /*  For Mobile  */}
          <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
           <Transition.Child
@@ -101,7 +101,7 @@ function Navbar() {
       </Transition.Root>
 
 
-    /*  For Computer  */
+ {   /*  For Computer  */}
       <header className="relative bg-white">
         <p className="flex items-center justify-center h-10 px-4 text-sm font-medium text-white bg-pink-600 sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
           Get free delivery on orders over Rs. 500

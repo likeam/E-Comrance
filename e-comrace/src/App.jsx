@@ -6,6 +6,7 @@ import NoPage from './pages/nopage/NoPage';
 import Cart from './pages/cart/Cart';
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import MyState from './data/myState';
+import ProductInfo from './pages/productInfo/ProductInfo';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route  path='/Order' element={<Order />} />
           <Route  path='/Cart' element={<Cart />} />
           <Route  path='/dashboard' element={<Dashboard/>} />
+          <Route path='/productinfo/id:' element={<ProductInfo />}/>
           <Route  path='/*' element={<NoPage/>} />
         </Routes>
     </Router>
