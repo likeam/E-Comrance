@@ -7,6 +7,10 @@ import Cart from './pages/cart/Cart';
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import MyState from './data/myState';
 import ProductInfo from './pages/productInfo/ProductInfo';
+import SignUp from './pages/registration/SignUp';
+import LogIn from './pages/registration/LogIn';
+import AddProduct from './pages/admin/page/AddProduct';
+import UpdateProduct from './pages/admin/page/UpdateProduct';
 
 
 function App() {
@@ -18,7 +22,12 @@ function App() {
           <Route  path='/Order' element={<Order />} />
           <Route  path='/Cart' element={<Cart />} />
           <Route  path='/dashboard' element={<Dashboard/>} />
-          <Route path='/productinfo/id:' element={<ProductInfo />}/>
+          <Route path='/productinfo/:id' element={<ProductInfo />}/>
+          <Route path='/login' element={<LogIn/>} />
+          <Route path='/signup' element={<SignUp/>} />
+          <Route path='/cart' element={<Cart/>} />
+          <Route path='/addproduct' element={<AddProduct/>} />
+          <Route path='/updateproduct' element={<UpdateProduct />} />
           <Route  path='/*' element={<NoPage/>} />
         </Routes>
     </Router>

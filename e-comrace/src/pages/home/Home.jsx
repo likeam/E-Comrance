@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Layout from '../../components/layout/layout';
+import Layout from '../../components/layout/Lsayout';
 import HeroSection from '../../components/heroSection/HeroSection';
 import Filter from '../../components/filter/filter';
 import ProductCard from '../../components/productCard/ProductCard';

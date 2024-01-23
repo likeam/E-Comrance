@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../../components/layout/layout';
+import Layout from '../../components/layout/Lsayout';
 
 function ProductInfo() {
   return (
@@ -127,7 +127,7 @@ function ProductInfo() {
                   
                     <div className="flex">
                         <span className="text-2xl font-medium text-gray-900 title-font">
-                            $58.00
+                            RS 580
                         </span>
                         <button className="flex px-6 py-2 ml-auto text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">
                             Add To Cart

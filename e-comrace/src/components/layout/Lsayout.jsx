@@ -3,7 +3,7 @@ import Footer from '../footer/Footer';
 import Navbar from '../navbar/Navbar';
 
 
-function layout({children}) {
+function Layout({children}) {
   return (
     <div>
         <Navbar />
@@ -15,4 +15,4 @@ function layout({children}) {
   )
 }
 
-export default layout;
+export default Layout;
