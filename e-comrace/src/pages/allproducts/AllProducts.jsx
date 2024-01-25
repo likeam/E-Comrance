@@ -6,4 +6,4 @@ function AllProducts() {
   )
 }
 
-export default AllProducts
+export default AllProducts;

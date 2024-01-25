@@ -1,7 +1,11 @@
-import React from 'react'
+import {configureStore} from '@reduxjs/toolkit';
+import cartSlice from './cartSlice';
 
-export default function store() {
-  return (
-    <div>store</div>
-  )
-}
+export const store = configureStore({
+    reducer: {
+        cart: cartSlice,
+    }, 
+    devTools: true
+});
+
+

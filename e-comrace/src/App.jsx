@@ -11,6 +11,7 @@ import SignUp from './pages/registration/SignUp';
 import LogIn from './pages/registration/LogIn';
 import AddProduct from './pages/admin/page/AddProduct';
 import UpdateProduct from './pages/admin/page/UpdateProduct';
+import AllProducts from './pages/allproducts/AllProducts';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='/cart' element={<Cart/>} />
           <Route path='/addproduct' element={<AddProduct/>} />
           <Route path='/updateproduct' element={<UpdateProduct />} />
+          <Route path='/allproducts' element={<AllProducts/>} />
           <Route  path='/*' element={<NoPage/>} />
         </Routes>
     </Router>

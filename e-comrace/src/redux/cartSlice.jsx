@@ -1,7 +1,20 @@
-import React from 'react'
+import { createSlice} from '@reduxjs/toolkit';
 
-export default function cartSlice() {
-  return (
-    <div>cartSlice</div>
-  )
-}
+const initialState = [];
+
+const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers : {
+        addToCart(state, action){
+            state.push(action.payload)
+        },
+        deleteFreomCart(state, action){
+            return state.filter(item => item.id != action.payload.id);
+        }
+    }
+
+});
+
+export const {addToCart, deleteFromCart} = cartSlice.actions;
+export default cartSlice.reducer;
