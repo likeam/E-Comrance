@@ -3,6 +3,7 @@ import myContext from './myContext';
 
 function MyState(props) {
     const [mode, setMode] = useState('light');
+    const [loading, setLoading] = useState(false)
 
     const toggleMode = () => {
         if(mode === 'light'){
