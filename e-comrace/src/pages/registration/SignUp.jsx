@@ -18,14 +18,12 @@ function Signup() {
 
     const signup = async() =>{
         setLoading(true);
-        console.log(name, email, password);
        
         if(name === '' || email === '' || password === ''){
             return toast.error("All Fields Required");
         }
         try{
-            const users = await createUserWithEmailAndPassword(auth, email, password);
-           
+            const users = await createUserWithEmailAndPassword(auth, email, password);           
 
             const user = {
                 name: name,
@@ -33,6 +31,7 @@ function Signup() {
                 email: users.user.email,
                 time : Timestamp.now()
             }
+
             const userRef = collection(fireDB, "users")
             await addDoc(userRef, user);
             toast.success("Signup Succesfully")
@@ -40,9 +39,8 @@ function Signup() {
             setEmail("");
             setPassword("");
             setLoading(false);
-            console.log(auth, email, password);
         } catch(error){
-            console.log(error);
+            console.error(error);
             setLoading(false);
         }
     }
