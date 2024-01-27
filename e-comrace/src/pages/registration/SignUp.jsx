@@ -39,7 +39,6 @@ function Signup() {
             setName("");
             setEmail("");
             setPassword("");
-            toast.success('Sign Up sucessful..');
             setLoading(false);
             console.log(auth, email, password);
         } catch(error){
