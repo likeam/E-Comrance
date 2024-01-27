@@ -5,8 +5,9 @@ import {toast} from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, fireDB } from '../../firebase/FirebaseConfig';
 import Loader from '../../components/loader/Loader';
+import { Timestamp, addDoc, collection } from 'firebase/firestore';
 
-function SignUp() {
+function Signup() {
 
     const [ name, setName] = useState('');
     const [password, setPassword] =  useState('');
@@ -15,13 +16,16 @@ function SignUp() {
     const context = useContext(myContext);
     const {loading, setLoading} = context;
 
-    const signUp = async() =>{
+    const signup = async() =>{
         setLoading(true);
+        console.log(name, email, password);
+       
         if(name === '' || email === '' || password === ''){
             return toast.error("All Fields Required");
         }
         try{
             const users = await createUserWithEmailAndPassword(auth, email, password);
+           
 
             const user = {
                 name: name,
@@ -35,7 +39,9 @@ function SignUp() {
             setName("");
             setEmail("");
             setPassword("");
-            setLoading(false)
+            toast.success('Sign Up sucessful..');
+            setLoading(false);
+            console.log(auth, email, password);
         } catch(error){
             console.log(error);
             setLoading(false);
@@ -46,7 +52,7 @@ function SignUp() {
     return (
         <div className='flex items-center justify-center h-screen '>
             {loading && <Loader/>}
-            <div className='px-10 py-10 bg-gray-800  rounded-xl'>
+            <div className='px-10 py-10 bg-gray-800 rounded-xl'>
                 <div className="">
                     <h1 className='mb-4 text-xl font-bold text-center text-white'>Signup</h1>
                 </div>
@@ -80,7 +86,7 @@ function SignUp() {
                 </div>
                 <div className='flex justify-center mb-3 '>
                     <button
-                        onClick={signUp}
+                        onClick={signup}
                         className='w-full px-2 py-2 font-bold text-white bg-red-500 rounded-lg '>
                         Signup
                     </button>
@@ -93,4 +99,4 @@ function SignUp() {
     )
 }
 
-export default SignUp
+export default Signup
