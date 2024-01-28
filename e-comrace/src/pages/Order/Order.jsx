@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Layout from '../../components/layout/Lsayout'
+import Layout from '../../components/layout/Layout'
 
 
 

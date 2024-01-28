@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import myContext from '../../../data/myContext'
-import Layout from '../../../components/layout/Lsayout';
+import Layout from '../../../components/layout/Layout';
 import {FaUserTie} from 'react-icons/fa';
 import DashboardTab from './DashboardTab';
 

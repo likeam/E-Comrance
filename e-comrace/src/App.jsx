@@ -24,7 +24,7 @@ function App() {
           <Route  path='/Order' element={  <ProtectedRoute> <Order /> </ProtectedRoute>} />
           <Route  path='/Cart' element={<Cart />} />
           <Route  path='/dashboard' element={ <ProtectedRouteForAdmin> <Dashboard/> </ProtectedRouteForAdmin>} />
-          <Route path='/productinfo/:id' element={<ProductInfo />}/>
+          <Route path='/productinfo/:id' element={<ProductInfo />}/>  
           <Route path='/login' element={<LogIn/>} />
           <Route path='/signup' element={<Signup/>} />
           <Route path='/cart' element={<Cart/>} />
@@ -58,7 +58,7 @@ export const ProtectedRoute = ({children})=>{
 
 export const ProtectedRouteForAdmin = ({children}) => {
   const admin = JSON.parse(localStorage.getItem('user'));
-  console.log(admin.user.email);
+ 
   if(admin.user.email === 'engrabdulrehman@live.com'){
     return children;
   }else {

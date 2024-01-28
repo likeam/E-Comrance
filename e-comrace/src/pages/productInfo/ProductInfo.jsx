@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../../components/layout/Lsayout';
+import Layout from '../../components/layout/Layout';
 
 function ProductInfo() {
   return (
