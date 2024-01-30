@@ -34,7 +34,16 @@ function Signup() {
 
             const userRef = collection(fireDB, "users")
             await addDoc(userRef, user);
-            toast.success("Signup Succesfully")
+            toast.success('Signin Successfully', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+              });
             setName("");
             setEmail("");
             setPassword("");
