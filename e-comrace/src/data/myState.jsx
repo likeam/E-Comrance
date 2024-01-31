@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import myContext from './myContext';
-import { Timestamp, addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { Timestamp, addDoc, collection, onSnapshot, orderBy, query, deleteDoc, setDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { fireDb } from '../firebase/FirebaseConfig'
 function MyState(props) {
@@ -71,7 +71,7 @@ function MyState(props) {
                 QuerySnapshot.forEach((doc) => {
                   productsArray.push({ ...doc.data(), id: doc.id });
                 });
-                console.log(productsArray);
+               
                 setProduct(productsArray);
                 setLoading(false);
             })
@@ -99,6 +99,20 @@ function MyState(props) {
           console.log(error)
         }
         setProducts("")
+      }
+
+      const deleteProduct = async (item) => {
+
+        try {
+          setLoading(true)
+          await deleteDoc(doc(fireDb, "products", item.id));
+          toast.success('Product Deleted successfully')
+          setLoading(false)
+          getProductData()
+        } catch (error) {
+          // toast.success('Product Deleted Falied')
+          setLoading(false)
+        }
       }
 
     useEffect(() => {

@@ -8,7 +8,7 @@ function AddProduct() {
     const context = useContext(myContext);
     const {products, setProducts, addProduct} = context;
 
-    console.log(products);
+    
 
 
     return (
