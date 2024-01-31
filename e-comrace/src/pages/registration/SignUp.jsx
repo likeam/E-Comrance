@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import myContext from '../../data/myContext';
 import {toast} from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, fireDB } from '../../firebase/FirebaseConfig';
+import { auth, fireDb } from '../../firebase/FirebaseConfig';
 import Loader from '../../components/loader/Loader';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';
 
@@ -32,7 +32,7 @@ function Signup() {
                 time : Timestamp.now()
             }
 
-            const userRef = collection(fireDB, "users")
+            const userRef = collection(fireDb, "users")
             await addDoc(userRef, user);
             toast.success('Signin Successfully', {
                 position: "top-right",

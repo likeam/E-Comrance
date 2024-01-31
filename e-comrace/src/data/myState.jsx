@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import myContext from './myContext';
-import { QuerySnapshot , Timestamp, addDoc, collection, doc, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { Timestamp, addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { toast } from 'react-toastify';
-import { fireDB } from '../firebase/FirebaseConfig';
-
+import { fireDb } from '../firebase/FirebaseConfig'
 function MyState(props) {
     const [mode, setMode] = useState('light');
     const [loading, setLoading] = useState(false);
@@ -31,19 +30,20 @@ function MyState(props) {
 
     const addProduct = async() => {
 
-        if(products.title == null || products.price == null || products.imgageUrl == null || products.category == null || products.description == null ) {
-            return toast.error('Please fill all fields.');
-        }
+       
 
-        const productRef = collection(fireDB, "products");
+        const productRef = collection(fireDb, "products");
         setLoading(true);
 
         try {
 
             await addDoc(productRef, products);
             toast.success("Product Add Sucessfully");
+           // setTimeout(() =>{
+             //   window.location.href = '/dashboard'            
+            //}, 800);
             getProductData();
-            closeModal();
+            //closeModal();
             setLoading(false);
 
         } catch(error){
@@ -54,21 +54,25 @@ function MyState(props) {
 
     }
 
-    // ****** get product
+
     const [product, setProduct] = useState([]);
-    const getProductData = async() => {
-        setLoading(true);
-        try{
-            const q = query(
-                collection(fireDB, 'products'),
-                orderBy("time")
-            );
+
+    // ****** get product
+    const getProductData = async () => {
+        setLoading(true)
+        try {
+          const q = query(
+            collection(fireDb, "products"),
+            orderBy("time"),
+            // limit(5)
+          );
             const data = onSnapshot(q, (QuerySnapshot) => {
-                let productArry = [];
+                let productsArray = [];
                 QuerySnapshot.forEach((doc) => {
-                    productArry.push({...doc.data(), id: doc.id});
+                  productsArray.push({ ...doc.data(), id: doc.id });
                 });
-                setProduct(productArry);
+                console.log(productsArray);
+                setProduct(productsArray);
                 setLoading(false);
             })
             return  () => data;
@@ -77,6 +81,25 @@ function MyState(props) {
             setLoading(false);
         }
     }
+
+    const edithandle = (item) => {
+        setProducts(item)
+      }
+      // update product
+      const updateProduct = async (item) => {
+        setLoading(true)
+        try {
+          await setDoc(doc(fireDb, "products", products.id), products);
+          toast.success("Product Updated successfully")
+          getProductData();
+          setLoading(false)
+          window.location.href = '/dashboard'
+        } catch (error) {
+          setLoading(false)
+          console.log(error)
+        }
+        setProducts("")
+      }
 
     useEffect(() => {
         getProductData();
@@ -100,3 +123,4 @@ function MyState(props) {
 }
 
 export default MyState;
+

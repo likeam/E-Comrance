@@ -9,7 +9,8 @@ import DashboardTab from './DashboardTab';
 function Dashboard() {
 
   const context = useContext(myContext);
-  const {mode} = context;
+  const {mode, product} = context;
+  console.log(product);
 
   return (
     <Layout>

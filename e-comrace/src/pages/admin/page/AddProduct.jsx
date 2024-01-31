@@ -6,7 +6,9 @@ import myContext from '../../../data/myContext'
 function AddProduct() {
     
     const context = useContext(myContext);
-    const {products, setProducts,addProduct} = context;
+    const {products, setProducts, addProduct} = context;
+
+    console.log(products);
 
 
     return (
