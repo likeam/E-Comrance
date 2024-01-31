@@ -7,7 +7,7 @@ import Cart from './pages/cart/Cart';
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import MyState from './data/myState';
 import ProductInfo from './pages/productInfo/ProductInfo';
-import Signup from './pages/registration/SignUp';
+import Signup from './pages/registration/Signup';
 import LogIn from './pages/registration/Login';
 import AddProduct from './pages/admin/page/AddProduct';
 import UpdateProduct from './pages/admin/page/UpdateProduct';

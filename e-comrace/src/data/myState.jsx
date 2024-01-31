@@ -15,8 +15,8 @@ function MyState(props) {
         price: null,
         imgageUrl: null,
         category: null,
-        discription : null,
-        time: Timestamp.now(),
+        description : null,
+        tidescriptiome: Timestamp.now(),
         date: new Date().toLocaleString( 
             "en-US",
             {
@@ -31,7 +31,7 @@ function MyState(props) {
 
     const addProduct = async() => {
 
-        if(products.title == null || products.price == null || products.imgageUrl == null || products.category == null || products.discription == null ) {
+        if(products.title == null || products.price == null || products.imgageUrl == null || products.category == null || products.description == null ) {
             return toast.error('Please fill all fields.');
         }
 
@@ -50,7 +50,7 @@ function MyState(props) {
             console.error(error);
             setLoading(false);
         }
-            setProducts('');
+            setProducts("");
 
     }
 
@@ -61,7 +61,7 @@ function MyState(props) {
         try{
             const q = query(
                 collection(fireDB, 'products'),
-                orderBy("time"),
+                orderBy("time")
             );
             const data = onSnapshot(q, (QuerySnapshot) => {
                 let productArry = [];
@@ -93,7 +93,7 @@ function MyState(props) {
         }
     }
   return (
-    <myContext.Provider value={{mode, toggleMode, loading, setLoading,  products, setProducts,addProduct}}>
+    <myContext.Provider value={{mode, toggleMode, loading, setLoading,  products, setProducts,addProduct, product, setProduct}}>
         {props.children}
     </myContext.Provider>
   )

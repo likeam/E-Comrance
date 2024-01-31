@@ -6,7 +6,7 @@ import myContext from '../../../data/myContext'
 function AddProduct() {
     
     const context = useContext(myContext);
-    const {products,setProducts,addProduct} = context;
+    const {products, setProducts,addProduct} = context;
 
 
     return (
@@ -52,7 +52,7 @@ function AddProduct() {
                     <div>
                        <textarea cols="30" rows="10" 
                              name='description' 
-                            
+                             onChange={(e) => setProducts({ ...products, description: e.target.value })} value={products.description}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                             placeholder='Product title'>
 
