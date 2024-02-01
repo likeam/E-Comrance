@@ -75,6 +75,7 @@ function MyState(props) {
                 setProduct(productsArray);
                 setLoading(false);
             })
+            console.log(data);
             return  () => data;
         } catch(error) {
             console.error(error);
@@ -130,7 +131,7 @@ function MyState(props) {
         }
     }
   return (
-    <myContext.Provider value={{mode, toggleMode, loading, setLoading,  products, setProducts,addProduct, product, setProduct}}>
+    <myContext.Provider value={{mode, toggleMode, loading, setLoading,  products, setProducts, addProduct, product, setProduct, edithandle, deleteProduct}}>
         {props.children}
     </myContext.Provider>
   )
