@@ -18,7 +18,7 @@ function DashboardTab() {
 
     // add to cart
     const addCart = (product) => {
-        dispatch(addToCart(product))
+        dispatch(addCart(product))
         toast.success('add to cart');
     }
 
