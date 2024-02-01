@@ -30,20 +30,21 @@ function MyState(props) {
 
     const addProduct = async() => {
 
-       
-
-        const productRef = collection(fireDb, "products");
-        setLoading(true);
+       //if(products.title === null || products.price === null || products.imgageUrl === null || products.category === null || products.description === null ){
+        //return toast.error("All fileds are required.")
+      //}      
 
         try {
+          setLoading(true);  
+          const productRef = collection(fireDb, "products");             
 
             await addDoc(productRef, products);
             toast.success("Product Add Sucessfully");
-           // setTimeout(() =>{
-             //   window.location.href = '/dashboard'            
-            //}, 800);
+            setTimeout(() =>{
+              window.location.href = '/dashboard'            
+            }, 800);
             getProductData();
-            //closeModal();
+            closeModal();
             setLoading(false);
 
         } catch(error){
@@ -64,8 +65,9 @@ function MyState(props) {
           const q = query(
             collection(fireDb, "products"),
             orderBy("time"),
-            // limit(5)
+            
           );
+          
             const data = onSnapshot(q, (QuerySnapshot) => {
                 let productsArray = [];
                 QuerySnapshot.forEach((doc) => {
@@ -73,15 +75,18 @@ function MyState(props) {
                 });
                
                 setProduct(productsArray);
+               
                 setLoading(false);
             })
-            console.log(data);
+            
             return  () => data;
         } catch(error) {
             console.error(error);
             setLoading(false);
         }
     }
+
+
 
     const edithandle = (item) => {
         setProducts(item)
@@ -99,7 +104,7 @@ function MyState(props) {
           setLoading(false)
           console.log(error)
         }
-        setProducts("")
+      setProducts("")
       }
 
       const deleteProduct = async (item) => {
@@ -111,8 +116,8 @@ function MyState(props) {
           setLoading(false)
           getProductData()
         } catch (error) {
-          // toast.success('Product Deleted Falied')
-          setLoading(false)
+          toast.success('Product Deleted Falied')
+         setLoading(false)
         }
       }
 
